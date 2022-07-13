@@ -26,6 +26,8 @@
 		Enter Date Of Living:<form:input path="dateOfLiving" />
 		<p />
 		<input type="submit" value="Submit" />
+		<form:button type="reset">
+    Clear All</form:button>
 	</form:form>
 </body>
 </html>
