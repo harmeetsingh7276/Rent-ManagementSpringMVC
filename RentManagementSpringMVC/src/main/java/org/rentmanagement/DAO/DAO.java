@@ -22,4 +22,12 @@ public final class DAO {
 		// session.getTransaction().commit(); not required while reading
 		return lst;
 	}
+
+	public void createTenant(Tenants tenant) {
+		Session session = factory.getCurrentSession();
+		session.beginTransaction();
+		session.save(tenant);
+		session.getTransaction().commit();
+		
+	}
 }

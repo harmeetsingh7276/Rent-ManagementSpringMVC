@@ -9,7 +9,7 @@
 <body>
 	<h1>Rent Management</h1>
 	<h2>List of Tenants</h2>
-	<form action="listOfTenants">
+	<form action="createTenant">
 		Enter Mobile Number:<input type="text" id="mobileNumber"
 			name="mobileNumber" />
 		<p />
