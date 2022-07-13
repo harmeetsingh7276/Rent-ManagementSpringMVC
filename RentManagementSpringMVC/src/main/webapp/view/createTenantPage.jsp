@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,24 +10,22 @@
 <body>
 	<h1>Rent Management</h1>
 	<h2>List of Tenants</h2>
-	<form action="createTenant">
-		Enter Mobile Number:<input type="text" id="mobileNumber"
-			name="mobileNumber" />
+	<form:form action="createTenant" modelAttribute="tenant">
+		Enter Mobile Number:<form:input path="mobileNumber" />
 		<p />
-		Enter Name:<input type="text" id="name" name="name" />
+		Enter Name:<form:input path="name" />
 		<p />
-		Document URL:<input type="text" id="idProof" name="idProof" />
+		Document URL:<form:input path="idProof" />
 		<p />
-		Enter Deposit:<input type="text" id="deposit" name="deposit" />
+		Enter Deposit:<form:input path="deposit" />
 		<p />
-		Enter Rent:<input type="text" id="rent" name="rent" />
+		Enter Rent:<form:input path="rent" />
 		<p />
-		Enter Date Of Deposit:<input type="text" id="dateOfDeposit"
-			name="dateOfDeposit" />
+		Enter Date Of Deposit:<form:input path="dateOfDepositGiven" />
 		<p />
-		Enter Date Of Living:<input type="text" id="dateOfLiving"
-			name="dateOfLiving" />
+		Enter Date Of Living:<form:input path="dateOfLiving" />
 		<p />
 		<input type="submit" value="Submit" />
+	</form:form>
 </body>
 </html>

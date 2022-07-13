@@ -6,6 +6,8 @@ import org.rentmanagement.DAO.DAO;
 import org.rentmanagement.model.Tenants;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,6 +23,8 @@ public class MainController {
 	@RequestMapping(value = "createTenantPage", method = RequestMethod.GET)
 	public ModelAndView createTenantPage() {
 		ModelAndView modelAndView = new ModelAndView("createTenantPage");
+		Tenants tenant=new Tenants();
+		modelAndView.addObject("tenant",tenant);
 		return modelAndView;
 	}
 
@@ -34,14 +38,10 @@ public class MainController {
 		return modelAndView;
 	}
 
-	@RequestMapping(value = "createTenant")
-	public ModelAndView createTenant(@RequestParam("mobileNumber") String mobileNumber,
-			@RequestParam("name") String name, @RequestParam("idProof") String idProof,
-			@RequestParam("rent") String rent, @RequestParam("deposit") String deposit,
-			@RequestParam("dateOfDeposit") String dateOfDeposit, @RequestParam("dateOfLiving") String dateOfLiving) {
-		Tenants tenant=new Tenants(mobileNumber, name, idProof, deposit, rent, dateOfDeposit, dateOfLiving);
+	@PostMapping("createTenant")
+	public ModelAndView createTenant(@ModelAttribute Tenants tenant) {
 		new DAO().createTenant(tenant);
-		ModelAndView modelAndView = new ModelAndView("listOfTenants");
+		ModelAndView modelAndView = new ModelAndView("redirect:listOfTenants");
 		return modelAndView;
 	}
 
