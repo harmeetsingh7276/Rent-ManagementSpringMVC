@@ -1,4 +1,8 @@
-package org.rentmanagement;
+package org.rentmanagement.Controller;
+import java.util.List;
+
+import org.rentmanagement.DAO.DAO;
+import org.rentmanagement.model.Tenants;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,9 +24,10 @@ public class MainController {
 	//@RequestMapping(value = "listOfTenants", method = RequestMethod.GET)
 	//to perform GET request only use
 	@GetMapping("listOfTenants")
-	public ModelAndView listOfTenants(@RequestParam("mobileNumber") String mobileNumber) {
+	public ModelAndView listOfTenants() {
+		List<Tenants> lst=new DAO().listTenantsDetails();
 		ModelAndView modelAndView=new ModelAndView("listOfTenants");
-		modelAndView.addObject("mobileNumber", mobileNumber);
+		modelAndView.addObject("listOfTenants", lst);
 		return modelAndView;
 	}
 	
