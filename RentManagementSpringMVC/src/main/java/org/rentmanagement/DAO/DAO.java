@@ -26,7 +26,14 @@ public final class DAO {
 	public void createTenant(Tenants tenant) {
 		Session session = factory.getCurrentSession();
 		session.beginTransaction();
-		session.save(tenant);
+		if(session.get(Tenants.class,tenant.getMobileNumber())==null) {
+			session.save(tenant);
+			System.out.println("Added Details for " + tenant.getName());
+		}
+		else {
+			session.merge(tenant);
+			System.out.println("Updated Details for " + tenant.getName());
+		}
 		session.getTransaction().commit();
 		
 	}
@@ -38,4 +45,12 @@ public final class DAO {
 		session.delete(tenant);
 		session.getTransaction().commit();
 	}
+
+	public Tenants getTenantByMobileNumber(String mobileNumber) {
+		Session session = factory.getCurrentSession();
+		session.beginTransaction();
+		Tenants tenant=session.get(Tenants.class, mobileNumber);
+		return tenant;
+	}
+
 }

@@ -15,7 +15,7 @@
 		<p />Enter 
 		Name:<form:input path="name" />
 		<p />
-		Document URL:<form:input path="idProof" />
+		Document URL:<form:input path="idProof"/>
 		<p />
 		Enter Deposit:<form:input path="deposit" />
 		<p />

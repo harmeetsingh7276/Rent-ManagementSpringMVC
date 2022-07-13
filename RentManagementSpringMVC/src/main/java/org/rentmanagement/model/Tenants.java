@@ -45,6 +45,16 @@ public class Tenants {
 		this.dateOfLiving = dateOfLiving;
 	}
 
+	public Tenants(Tenants tenant) {
+		this.mobileNumber = tenant.mobileNumber;
+		this.name = tenant.name;
+		this.idProof = tenant.idProof;
+		this.deposit = tenant.deposit;
+		this.rent = tenant.rent;
+		this.dateOfDepositGiven = tenant.dateOfDepositGiven;
+		this.dateOfLiving = tenant.dateOfLiving;
+	}
+
 	public String getMobileNumber() {
 		return mobileNumber;
 	}

@@ -33,17 +33,20 @@
 				</td>
 				<td>
 					<ul>
-						<li>
-							<form action="deleteTenant">
-								<input type="hidden" name="mobileNumber" value="${tenant.getMobileNumber()}" />
-								<input type="submit" value="Delete"/>
-							</form> 
-							
-						</li>
-						<li></li>
+						<form action="updateTenant">
+						<input type="hidden" name="mobileNumber"
+							value="${tenant.getMobileNumber()}" /> <input type="submit"
+							value="Update" />
+					</form>
 					</ul>
 				</td>
-				<td></td>
+				<td>
+					<form action="deleteTenant">
+						<input type="hidden" name="mobileNumber"
+							value="${tenant.getMobileNumber()}" /> <input type="submit"
+							value="Delete" />
+					</form>
+				</td>
 			</tr>
 		</c:forEach>
 	</table>

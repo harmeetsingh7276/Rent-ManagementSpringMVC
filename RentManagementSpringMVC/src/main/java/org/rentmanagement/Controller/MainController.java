@@ -21,9 +21,8 @@ public class MainController {
 	}
 
 	@RequestMapping(value = "createTenantPage", method = RequestMethod.GET)
-	public ModelAndView createTenantPage() {
+	public ModelAndView createTenantPage(Tenants tenant) {
 		ModelAndView modelAndView = new ModelAndView("createTenantPage");
-		Tenants tenant=new Tenants();
 		modelAndView.addObject("tenant",tenant);
 		return modelAndView;
 	}
@@ -50,6 +49,14 @@ public class MainController {
 	public ModelAndView deleteTenant(@RequestParam("mobileNumber") String mobileNumber ) {
 		new DAO().deleteTenant(mobileNumber);
 		ModelAndView modelAndView = new ModelAndView("redirect:listOfTenants");
+		return modelAndView;
+	}
+	@GetMapping("updateTenant")
+	public ModelAndView updateTenant(@RequestParam("mobileNumber") String mobileNumber ) {
+		Tenants tenant=new DAO().getTenantByMobileNumber(mobileNumber);
+		//createTenantPage(tenant);
+		ModelAndView modelAndView = new ModelAndView("createTenantPage");
+		modelAndView.addObject("tenant",tenant);
 		return modelAndView;
 	}
 }
