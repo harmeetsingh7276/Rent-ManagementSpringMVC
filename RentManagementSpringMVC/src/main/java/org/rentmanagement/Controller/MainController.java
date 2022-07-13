@@ -34,6 +34,8 @@ public class MainController {
 	public ModelAndView listOfTenants() {
 		List<Tenants> lst = new DAO().listTenantsDetails();
 		ModelAndView modelAndView = new ModelAndView("listOfTenants");
+		Tenants updateTenant=new Tenants();
+		modelAndView.addObject("updateTenant", updateTenant);
 		modelAndView.addObject("listOfTenants", lst);
 		return modelAndView;
 	}
@@ -44,5 +46,10 @@ public class MainController {
 		ModelAndView modelAndView = new ModelAndView("redirect:listOfTenants");
 		return modelAndView;
 	}
-
+	@GetMapping("deleteTenant")
+	public ModelAndView deleteTenant(@RequestParam("mobileNumber") String mobileNumber ) {
+		new DAO().deleteTenant(mobileNumber);
+		ModelAndView modelAndView = new ModelAndView("redirect:listOfTenants");
+		return modelAndView;
+	}
 }

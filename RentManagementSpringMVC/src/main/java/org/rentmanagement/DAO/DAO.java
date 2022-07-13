@@ -30,4 +30,12 @@ public final class DAO {
 		session.getTransaction().commit();
 		
 	}
+
+	public void deleteTenant(String mobileNumber) {
+		Session session = factory.getCurrentSession();
+		session.beginTransaction();
+		Tenants tenant=session.get(Tenants.class, mobileNumber);
+		session.delete(tenant);
+		session.getTransaction().commit();
+	}
 }

@@ -9,11 +9,11 @@
 </head>
 <body>
 	<h1>Rent Management</h1>
-	<h2>Add details of Tenants</h2>
+	<h2>Add Details of Tenants</h2>
 	<form:form action="createTenant" modelAttribute="tenant">
 		Enter Mobile Number:<form:input path="mobileNumber" />
-		<p />
-		Enter Name:<form:input path="name" />
+		<p />Enter 
+		Name:<form:input path="name" />
 		<p />
 		Document URL:<form:input path="idProof" />
 		<p />

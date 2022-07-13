@@ -31,6 +31,19 @@
 						<li>Rent:<c:out value="${tenant.getRent()}" /></li>
 					</ul>
 				</td>
+				<td>
+					<ul>
+						<li>
+							<form action="deleteTenant">
+								<input type="hidden" name="mobileNumber" value="${tenant.getMobileNumber()}" />
+								<input type="submit" value="Delete"/>
+							</form> 
+							
+						</li>
+						<li></li>
+					</ul>
+				</td>
+				<td></td>
 			</tr>
 		</c:forEach>
 	</table>
