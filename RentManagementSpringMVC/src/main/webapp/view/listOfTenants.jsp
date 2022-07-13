@@ -23,7 +23,8 @@
 				<td>
 					<ul>
 						<li>Name:<c:out value="${tenant.getName()}" /></li>
-						<li>Date Of Deposit Given:<c:out value="${tenant.getDateOfDepositGiven()}" /></li>
+						<li>Date Of Deposit Given:<c:out
+								value="${tenant.getDateOfDepositGiven()}" /></li>
 						<li>Date of Living:<c:out value="${tenant.getDateOfLiving()}" /></li>
 						<li>Document URL:<c:out value="${tenant.getIdProof()}" /></li>
 						<li>Deposit:<c:out value="${tenant.getDeposit()}" /></li>

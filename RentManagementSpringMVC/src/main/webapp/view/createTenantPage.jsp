@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h1>Rent Management</h1>
-	<h2>List of Tenants</h2>
+	<h2>Add details of Tenants</h2>
 	<form:form action="createTenant" modelAttribute="tenant">
 		Enter Mobile Number:<form:input path="mobileNumber" />
 		<p />
